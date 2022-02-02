@@ -7,7 +7,9 @@ const Post = (props) => {
       <img className={s.postProfileLogo} src="https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg"></img>
       { props.message }
         <div>
-          <span>Like</span>
+          <span>
+            { props.likeCout }
+          </span>
         </div>
       </div>
 }
