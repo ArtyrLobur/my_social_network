@@ -17,3 +17,12 @@
 
 .messages .message {
 }
+
+.dialogItemAvatar {
+  width: 60px;
+  border-radius: 30px;
+}
+
+.messagesItemStyle {
+  padding-bottom: 20px;
+}
