@@ -26,7 +26,17 @@ let state = {
       { id: 5, name: "Viktor" },
       { id: 6, name: "Artyr" },
     ],
+    sidebar: {},
   },
 };
 
+export let addPost = (postMessage) => {
+  let newPost = {
+    id: 5,
+    message: postMessage,
+    likeCout: 0,
+  };
+
+  state.profilePage.posts.push(newPost);
+};
 export default state;
