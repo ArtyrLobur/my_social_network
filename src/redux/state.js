@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_MESSAGES = 'UPDATE-MESSAGES';
 
 
 let store = {
@@ -11,28 +13,19 @@ let store = {
         { id: 3, message: "It's my second post", likeCout: "9 Likes" },
         { id: 4, message: "It's my post", likeCout: "2 Likes" },
       ],
-      newPostText: 'react lessons',
+      newPostText: 'insert text',
     },
   
     messagePage: {
       messages: [
-        { id: 1, message: "Hi" },
-        { id: 2, message: "How are you?" },
-        { id: 3, message: "Yo" },
-        { id: 4, message: "My english is beautiful" },
-        { id: 5, message: "Privet Ded" },
-        { id: 6, message: "Nice car" },
+        { id: 1, name: "Dima", message: "Hi" },
+        { id: 2, name: "Andrey", message: "How are you?" },
+        { id: 3, name: "Sveta", message: "Yo" },
+        { id: 4, name: "Sasha", message: "My english is beautiful" },
+        { id: 5, name: "Viktor", message: "Privet Ded" },
+        { id: 6, name: "Artyr", message: "Nice car" },
       ],
-  
-      dialogs: [
-        { id: 1, name: "Dima" },
-        { id: 2, name: "Andrey" },
-        { id: 3, name: "Sveta" },
-        { id: 4, name: "Sasha" },
-        { id: 5, name: "Viktor" },
-        { id: 6, name: "Artyr" },
-      ],
-      sidebar: {},
+      newMessageText: 'write message',
     },
   },
   _callSubscriber () {
@@ -53,20 +46,41 @@ let store = {
         message: this._state.profilePage.newPostText,
         likeCout: 0,
       };
-    
       
       this._state.profilePage.posts.push(newPost);
       this._state.profilePage.newPostText='';
       this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
+    } 
+    
+    else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
+    } 
+    
+    else if (action.type === ADD_MESSAGE) {
+      let newMessage = {
+        id: 7,
+        name: 'Artur',
+        message: this._state.messagePage.newMessageText,
+      };
+      
+      this._state.messagePage.messages.push(newMessage);
+      this._state.messagePage.newMessageText='';
+      this._callSubscriber(this._state);
     }
+
+    else if (action.type === UPDATE_MESSAGES) {
+      this._state.messagePage.newMessageText = action.newMessage;
+      this._callSubscriber(this._state);
+    } 
   }
 }
 
 export const addPostActionCreator = () => ({ type: ADD_POST})
 export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
+
+export const addMessageActionCreator = () => ({ type: ADD_MESSAGE})
+export const updateNewMessageTextActionCreator = (message) => ({ type: UPDATE_MESSAGES, newMessage: message })
 
 export default store;
 window.store = store;
