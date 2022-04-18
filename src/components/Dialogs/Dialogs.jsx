@@ -2,7 +2,7 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./Dialogitem/Dialogitem"
 import Message from "./Message/Message"
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../../redux/state";
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../../redux/message-reducer";
 
 const Dialogs = (props) => {
     let dialogsElements = 
