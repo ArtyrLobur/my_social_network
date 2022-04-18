@@ -1,3 +1,7 @@
+import messageReducer from "./message-reducer";
+import profileReducer from "./profile-reducer";
+import sidebarReducer from "./sidebar-reducer";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_MESSAGE = 'ADD-MESSAGE';
@@ -27,6 +31,7 @@ let store = {
       ],
       newMessageText: 'write message',
     },
+    sidebar: {},
   },
   _callSubscriber () {
     console.log('State was Change');
@@ -40,6 +45,11 @@ let store = {
   },
 // ----------------------------
   dispatch(action) {  
+
+    this._state.profilePage = profileReducer (this._state.profilePage, action);
+    this._state.messagePage = messageReducer (this._state.messagePage, action);
+    this._state.sidebar = sidebarReducer (this._state.sidebar, action);
+
     if (action.type === ADD_POST) { 
       let newPost = {
         id: 5,
