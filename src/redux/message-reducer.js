@@ -1,5 +1,7 @@
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_MESSAGES = 'UPDATE-MESSAGES';
+import { createSlice } from "@reduxjs/toolkit";
+
+// const ADD_MESSAGE = 'ADD-MESSAGE';
+// const UPDATE_MESSAGES = 'UPDATE-MESSAGES';
 
 let initialState = {
   messages: [
@@ -13,30 +15,52 @@ let initialState = {
   newMessageText: 'write message'
 }
 
-const messageReducer = (state = initialState, action) => {
-    
-    switch (action.type) {
-        case ADD_MESSAGE:
-          let newMessage = {
-            id: 7,
-            name: 'Artur',
-            message: state.newMessageText,
-          };
-          
-          state.messages.push(newMessage);
+const messageReducerSlice = createSlice({
+  name: 'messages',
+  initialState,
+
+  reducers: {
+    addMessages: state => {
+      let newMessage = {
+        id: 7,
+        name: 'Artur',
+        message: state.newMessageText,
+      };
+      state.messages.push(newMessage);
           state.newMessageText='';
-          return state;
+    },
+    updateMesseges: (state, action) => {
+      state.newMessageText = action.newMessage;
+    }
+  }
+})
+
+
+// const messageReducer1 = (state = initialState, action) => {
+    
+//     switch (action.type) {
+//         case ADD_MESSAGE:
+//           let newMessage = {
+//             id: 7,
+//             name: 'Artur',
+//             message: state.newMessageText,
+//           };
+          
+//           state.messages.push(newMessage);
+//           state.newMessageText='';
+//           return state;
         
-        case UPDATE_MESSAGES:
-            state.newMessageText = action.newMessage;
-            return state;
+//         case UPDATE_MESSAGES:
+//             state.newMessageText = action.newMessage;
+//             return state;
 
-        default:
-            return state;
-        } 
-}
+//         default:
+//             return state;
+//         } 
+// }
 
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE})
-export const updateNewMessageTextActionCreator = (message) => ({ type: UPDATE_MESSAGES, newMessage: message })
+export const {addMessages, updateMesseges} = messageReducerSlice.actions;
+// export const addMessageActionCreator = () => ({ type: ADD_MESSAGE})
+// export const updateNewMessageTextActionCreator = (message) => ({ type: UPDATE_MESSAGES, newMessage: message })
 
-export default messageReducer;
+export default messageReducerSlice.reducer;
