@@ -9,7 +9,7 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import Profile from "./components/Profile/Profile";
 
-const App = (props) => {
+const App = () => {
   return (
     <div className="app-wrapper">
       <Header />
@@ -20,9 +20,7 @@ const App = (props) => {
           <Route
             path="/profile"
             element={
-              <Profile
-                profilePage={props.state.profilePage}
-                dispatch={props.dispatch} />
+              <Profile/>
             }
           />
           <Route

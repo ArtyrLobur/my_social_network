@@ -5,7 +5,7 @@ import s from './MyPosts.module.css';
 import Post from "./Post/Post";
 
 
-const MyPosts = (props) => {
+const MyPosts = () => {
 
   const postSelector = useSelector((state) => state.profilePage.posts)
   const textSelector = useSelector ((state) => state.profilePage.newPostText)
