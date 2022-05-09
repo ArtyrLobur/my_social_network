@@ -1,5 +1,4 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+import { createSlice } from "@reduxjs/toolkit";
 
 
 let initialState = {
@@ -9,33 +8,28 @@ let initialState = {
         { id: 3, message: "It's my second post", likeCout: "9 Likes" },
         { id: 4, message: "It's my post", likeCout: "2 Likes" },
       ],
-      newPostText: 'insert text',
+      newPostText: ''
 }
 
-const profileReducer = (state = initialState, action) => {
-    
-    switch (action.type) { 
-        case ADD_POST:
+const profileReducerSlice = createSlice({
+    name: 'posts',
+    initialState,
+
+    reducers: {
+        addPosts: state => {
             let newPost = {
             id: 5,
             message: state.newPostText,
             likeCout: 0,
             };
-        
             state.posts.push(newPost);
             state.newPostText='';
-            return state;
+        },
+        updateNewPostText: (state, action) => {
+            state.newPostText = action.payload;
+        }
+    }
+})
 
-        case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText;
-            return state;
-
-        default:
-            return state;
-    } 
-}
-
-export const addPostActionCreator = () => ({ type: ADD_POST})
-export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
-
-export default profileReducer;
+export const { addPosts, updateNewPostText } = profileReducerSlice.actions;
+export default profileReducerSlice.reducer;

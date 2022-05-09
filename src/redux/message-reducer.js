@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// const ADD_MESSAGE = 'ADD-MESSAGE';
-// const UPDATE_MESSAGES = 'UPDATE-MESSAGES';
 
 let initialState = {
   messages: [
@@ -35,32 +33,5 @@ const messageReducerSlice = createSlice({
   }
 })
 
-
-// const messageReducer1 = (state = initialState, action) => {
-    
-//     switch (action.type) {
-//         case ADD_MESSAGE:
-//           let newMessage = {
-//             id: 7,
-//             name: 'Artur',
-//             message: state.newMessageText,
-//           };
-          
-//           state.messages.push(newMessage);
-//           state.newMessageText='';
-//           return state;
-        
-//         case UPDATE_MESSAGES:
-//             state.newMessageText = action.newMessage;
-//             return state;
-
-//         default:
-//             return state;
-//         } 
-// }
-
 export const {addMessages, updateMesseges} = messageReducerSlice.actions;
-// export const addMessageActionCreator = () => ({ type: ADD_MESSAGE})
-// export const updateNewMessageTextActionCreator = (message) => ({ type: UPDATE_MESSAGES, newMessage: message })
-
 export default messageReducerSlice.reducer;

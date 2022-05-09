@@ -8,7 +8,6 @@ import Navbar from "./components/Navbar/Navbar";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import Profile from "./components/Profile/Profile";
-// import Friends from "./components/Friends/Friends";
 
 const App = (props) => {
   return (
@@ -29,15 +28,12 @@ const App = (props) => {
           <Route
             path="/dialogs"
             element={
-              <Dialogs 
-                state={props.state.dialogPage} 
-                dispatch={props.dispatch} />
+              <Dialogs/>
               }
           />
           <Route path="/news" element={<News />} />
           <Route path="/music" element={<Music />} />
           <Route path="/settings" element={<Settings />} />
-          {/* <Route path="/friends" element={<Friends />} /> */}
         </Routes>
       </div>
     </div>
