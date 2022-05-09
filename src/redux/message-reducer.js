@@ -12,7 +12,7 @@ let initialState = {
     { id: 5, name: "Viktor", message: "Privet Ded" },
     { id: 6, name: "Artyr", message: "Nice car" },
   ],
-  newMessageText: 'write message'
+  newMessageText: ''
 }
 
 const messageReducerSlice = createSlice({
@@ -27,10 +27,10 @@ const messageReducerSlice = createSlice({
         message: state.newMessageText,
       };
       state.messages.push(newMessage);
-          state.newMessageText='';
+      state.newMessageText='';
     },
     updateMesseges: (state, action) => {
-      state.newMessageText = action.newMessage;
+      state.newMessageText = action.payload;
     }
   }
 })
