@@ -17,12 +17,7 @@ const profileReducerSlice = createSlice({
 
     reducers: {
         addPosts: state => {
-            let newPost = {
-            id: 5,
-            message: state.newPostText,
-            likeCout: 0,
-            };
-            state.posts.push(newPost);
+            state.posts.push({id: 5, message: state.newPostText, likeCout: 0,});
             state.newPostText='';
         },
         updateNewPostText: (state, action) => {

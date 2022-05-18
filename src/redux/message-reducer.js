@@ -19,12 +19,8 @@ const messageReducerSlice = createSlice({
 
   reducers: {
     addMessages: state => {
-      let newMessage = {
-        id: 7,
-        name: 'Artur',
-        message: state.newMessageText,
-      };
-      state.messages.push(newMessage);
+
+      state.messages.push({id: 7, name: 'Artur', message: state.newMessageText});
       state.newMessageText='';
     },
     updateMesseges: (state, action) => {
