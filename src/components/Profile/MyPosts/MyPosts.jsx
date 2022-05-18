@@ -20,7 +20,7 @@ const MyPosts = () => {
     dispatch(action);
   }
 
-  let addPost = () => {
+  let OnAddPost = () => {
     dispatch(addPosts());
   }
 
@@ -37,7 +37,7 @@ const MyPosts = () => {
                       </div>
                       <div>
                         <button
-                          onClick={addPost}>
+                          onClick={OnAddPost}>
                           Add post
                         </button>
                       </div>
