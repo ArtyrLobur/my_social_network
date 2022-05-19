@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar/Navbar";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import Profile from "./components/Profile/Profile";
+import Users from "./components/Users/Users";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
               <Dialogs/>
               }
           />
+          <Route path="/users" element={<Users />} />
           <Route path="/news" element={<News />} />
           <Route path="/music" element={<Music />} />
           <Route path="/settings" element={<Settings />} />
