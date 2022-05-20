@@ -17,7 +17,6 @@ const usersReducerSlice = createSlice({
         follow: (state, action) => {
             state.users.map(u => {
                 if (u.id === action.userId) {
-                    console.log(u);
                     return { ...u, followed: true}
                 }
                 return u;
