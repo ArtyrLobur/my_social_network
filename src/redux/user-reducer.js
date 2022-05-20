@@ -2,9 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 let initialState = {
     users: [
-        { id: 1, followed: false, fullName: 'Dmitry', status: 'I am a boss', location: { city: 'Minsk', country: 'Belarus' } },
-        { id: 2, followed: true, fullName: 'Artur', status: 'I am a boss too', location: { city: 'Kiev', country: 'Ukraine' } },
-        { id: 3, followed: false, fullName: 'Andrew', status: 'I am a boss too', location: { city: 'Krakow', country: 'Poland' } }
+        { id: 1, photoUrl: 'https://scontent.fiev8-2.fna.fbcdn.net/v/t39.30808-6/272745595_6833382506732937_3575085819718476552_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Y06kymggRCoAX_MuUyg&_nc_ht=scontent.fiev8-2.fna&oh=00_AT_dbvM3oM1KVMqTYFwMptEtJGQ7wsrO2myDzauwKRIH8w&oe=628C1ADC', followed: false, fullName: 'Dmitry', status: 'I am a boss', location: { city: 'Minsk', country: 'Belarus' } },
+        { id: 2, photoUrl: 'https://scontent.fiev8-2.fna.fbcdn.net/v/t39.30808-6/272745595_6833382506732937_3575085819718476552_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Y06kymggRCoAX_MuUyg&_nc_ht=scontent.fiev8-2.fna&oh=00_AT_dbvM3oM1KVMqTYFwMptEtJGQ7wsrO2myDzauwKRIH8w&oe=628C1ADC', followed: true, fullName: 'Artur', status: 'I am a boss too', location: { city: 'Kiev', country: 'Ukraine' } },
+        { id: 3, photoUrl: 'https://scontent.fiev8-2.fna.fbcdn.net/v/t39.30808-6/272745595_6833382506732937_3575085819718476552_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Y06kymggRCoAX_MuUyg&_nc_ht=scontent.fiev8-2.fna&oh=00_AT_dbvM3oM1KVMqTYFwMptEtJGQ7wsrO2myDzauwKRIH8w&oe=628C1ADC', followed: false, fullName: 'Andrew', status: 'I am a boss too', location: { city: 'Krakow', country: 'Poland' } }
     ]
 
 };
@@ -17,6 +17,7 @@ const usersReducerSlice = createSlice({
         follow: (state, action) => {
             state.users.map(u => {
                 if (u.id === action.userId) {
+                    console.log(u);
                     return { ...u, followed: true}
                 }
                 return u;
@@ -36,4 +37,5 @@ const usersReducerSlice = createSlice({
     }
 })
 
-export default usersReducerSlice;
+export const { follow, unFollow, setUsers } = usersReducerSlice.actions;
+export default usersReducerSlice.reducer;
