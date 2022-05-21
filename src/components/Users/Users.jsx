@@ -8,12 +8,15 @@ const Users = () => {
     const dispatch = useDispatch()
 
 
-    let following = () => {
-        dispatch(follow())
+
+    let following = (userId) => {
+        console.log(userId)
+        dispatch(follow(userId))
     }
 
-    let unFollowiing = () => {
-        dispatch(unFollow())
+    let unFollowiing = (userId) => {
+        console.log(userId)
+        dispatch(unFollow(userId))
     }
 
     return <div>
@@ -26,7 +29,8 @@ const Users = () => {
                     <div>
                         {u.followed
                             ? <button onClick={() => following(u.id)}>Follow</button>
-                            : <button onClick={() => unFollowiing(u.id)}>Unfollow</button> }
+                            : <button onClick={() => unFollowiing(u.id)}>Unfollow</button>
+                        }
                     </div>
                 </span>
                 <span>
