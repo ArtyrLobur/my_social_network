@@ -10,12 +10,10 @@ const Users = () => {
 
 
     let following = (userId) => {
-        console.log(userId)
         dispatch(follow(userId))
     }
 
     let unFollowiing = (userId) => {
-        console.log(userId)
         dispatch(unFollow(userId))
     }
 
@@ -43,11 +41,11 @@ const Users = () => {
                         <div>{u.location.city }</div>
                     </span>
                 </span>
-            </div>)
-
+            </div>
+            )
         }
         
-        </div>
+    </div>
     
         
 }

@@ -16,8 +16,7 @@ const MyPosts = () => {
 
   let onPostChange = (event) => {
     let text = event.target.value;
-    let action = updateNewPostText(text);
-    dispatch(action);
+    dispatch(updateNewPostText(text));
   }
 
   let OnAddPost = () => {
