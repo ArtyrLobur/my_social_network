@@ -15,22 +15,23 @@ const usersReducerSlice = createSlice({
 
     reducers: {
         follow: (state, action) => {
-            state.users.map(u => {
+            let props = state.users.map(u => {
                 if (u.id === action.payload) {
-                    return u.followed = true;
+                    return { ...u, followed: true }
                 }
-                console.log(u.id, u.followed)
                 return u;
                 
             })
+            console.log(props);
         },
         unFollow: (state, action) => {
-            state.users.map(u => {
+            let props2 = state.users.map(u => {
                 if (u.id === action.payload) {
-                    return u.followed = false;
+                    return { ...u, followed: false }
                 }
                 return u;
             })
+            console.log(props2);
         },
         setUsers: state => {
 
