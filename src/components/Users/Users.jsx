@@ -4,7 +4,10 @@ import { follow, unFollow } from "../../redux/user-reducer";
 import s from './Users.module.css';
 
 const Users = () => {
-    const userSelector = useSelector((state) => state.usersPage.users)
+    const userSelector = useSelector((state) => { 
+        console.log('state is', state)
+        return state.usersPage.users
+    })
     const dispatch = useDispatch()
 
 
@@ -17,6 +20,8 @@ const Users = () => {
         dispatch(unFollow(userId))
     }
 
+    console.log('props userselector', userSelector);
+
     return <div>
         {
             userSelector.map(u => <div key={u.id}>
@@ -26,8 +31,8 @@ const Users = () => {
                     </div>
                     <div>
                         {u.followed
-                            ? <button onClick={() => following(u.id)}>Follow</button>
-                            : <button onClick={() => unFollowiing(u.id)}>Unfollow</button>
+                            ? <button onClick={() => unFollowiing(u.id)}>Unfollow</button>
+                            : <button onClick={() => following(u.id)}>Follow</button>
                         }
                     </div>
                 </span>

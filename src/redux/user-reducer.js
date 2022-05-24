@@ -8,6 +8,7 @@ let initialState = {
     ]
 
 };
+// use method FIND!!!
 
 const usersReducerSlice = createSlice({
     name: 'users',
@@ -15,23 +16,18 @@ const usersReducerSlice = createSlice({
 
     reducers: {
         follow: (state, action) => {
-            let props = state.users.map(u => {
+            state.users.forEach((u, i) => {
                 if (u.id === action.payload) {
-                    return { ...u, followed: true }
+                    state.users[i].followed = true;
                 }
-                return u;
-                
             })
-            console.log(props);
         },
         unFollow: (state, action) => {
-            let props2 = state.users.map(u => {
+            state.users.forEach((u, i) => {
                 if (u.id === action.payload) {
-                    return { ...u, followed: false }
+                    state.users[i].followed = false;
                 }
-                return u;
             })
-            console.log(props2);
         },
         setUsers: state => {
 
