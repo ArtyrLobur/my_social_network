@@ -29,8 +29,8 @@ const usersReducerSlice = createSlice({
                 }
             })
         },
-        setUsers: state => {
-
+        setUsers: (state, action)  => {
+            state.users.push(action.payload);
         }
     }
 })
