@@ -4,13 +4,8 @@ import { follow, unFollow } from "../../redux/user-reducer";
 import s from './Users.module.css';
 
 const Users = () => {
-    const userSelector = useSelector((state) => { 
-        console.log('state is', state)
-        return state.usersPage.users
-    })
+    const userSelector = useSelector((state) => state.usersPage.users)
     const dispatch = useDispatch()
-
-
 
     let following = (userId) => {
         dispatch(follow(userId))
@@ -19,8 +14,6 @@ const Users = () => {
     let unFollowiing = (userId) => {
         dispatch(unFollow(userId))
     }
-
-    console.log('props userselector', userSelector);
 
     return <div>
         {
