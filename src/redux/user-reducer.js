@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createSlice } from "@reduxjs/toolkit";
 
 let initialState = {
@@ -8,6 +9,13 @@ let initialState = {
     ]
 
 };
+
+const responseUsers = axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+    console.log(response);
+})
+
+
+    
 // use method FIND!!!
 
 const usersReducerSlice = createSlice({
@@ -29,8 +37,8 @@ const usersReducerSlice = createSlice({
                 }
             })
         },
-        setUsers: (state, action)  => {
-            state.users.push(action.payload);
+        setUsers: (state, action) => {
+            state.push(action.payload);
         }
     }
 })

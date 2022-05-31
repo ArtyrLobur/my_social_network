@@ -1,14 +1,10 @@
 import axios from "axios";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { follow, unFollow } from "../../redux/user-reducer";
+import { follow, setUsers, unFollow } from "../../redux/user-reducer";
 import s from './Users.module.css';
 
 const Users = () => {
-
-    axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-        console.log(response);
-    })
 
     const userSelector = useSelector((state) => state.usersPage.users)
     const dispatch = useDispatch()
