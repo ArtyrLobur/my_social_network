@@ -5,18 +5,18 @@ import s from './Users.module.css';
 
 const Users = () => {
     const dispatch = useDispatch()
-    dispatch(getUsers())
+    // dispatch(getUsers())
     const usersData = useSelector((state) => state.usersPage.users)
-    console.log(usersData)
+    // console.log(usersData)
     
 
-    // let following = (userId) => {
-    //     dispatch(follow(userId))
-    // }
+    let following = (userId) => {
+        dispatch(follow(userId))
+    }
 
-    // let unFollowiing = (userId) => {
-    //     dispatch(unFollow(userId))
-    // }
+    let unFollowiing = (userId) => {
+        dispatch(unFollow(userId))
+    }
 
     return <div>
         {
@@ -27,10 +27,10 @@ const Users = () => {
                     </div>
                     <div>
                         {u.followed}
-                        {/* {u.followed
+                        {u.followed
                             ? <button onClick={() => unFollowiing(u.id)}>Unfollow</button>
                             : <button onClick={() => following(u.id)}>Follow</button>
-                        } */}
+                        }
                     </div>
                 </span>
                 <span>
