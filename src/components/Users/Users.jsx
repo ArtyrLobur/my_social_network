@@ -1,14 +1,15 @@
-import React from "react";
+import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { follow, getUsers, unFollow } from "../../redux/user-reducer";
 import s from './Users.module.css';
 
 const Users = () => {
     const dispatch = useDispatch()
-    // dispatch(getUsers())
-    const usersData = useSelector((state) => state.usersPage.users)
-    // console.log(usersData)
+ 
+    const usersData = useSelector((state) => state.usersPage.users);
+    console.log(usersData);
     
+    dispatch(getUsers())
 
     let following = (userId) => {
         dispatch(follow(userId))
@@ -24,6 +25,7 @@ const Users = () => {
                 <span>
                     <div>
                         <img className={s.userPhoto} src={u.photoUrl} alt="userPhoto" />
+                        
                     </div>
                     <div>
                         {u.followed}
@@ -35,12 +37,8 @@ const Users = () => {
                 </span>
                 <span>
                     <span>
-                        <div>{u.name}</div>
+                        <div>{u.fullName}</div>
                         <div>{u.followed}</div>
-                    </span>
-                    <span>
-                        <div>{u.location.country }</div>
-                        <div>{u.location.city }</div>
                     </span>
                 </span>
             </div>
