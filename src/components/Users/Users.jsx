@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { follow, getUsers, unFollow } from '../../redux/user-reducer';
 import s from './Users.module.css';
@@ -9,7 +9,9 @@ const Users = () => {
   const usersData = useSelector(state => state.usersPage.users);
   console.log(usersData);
 
-  dispatch(getUsers());
+  useEffect(() => {
+    dispatch(getUsers());
+  });
 
   let following = userId => {
     dispatch(follow(userId));
@@ -38,7 +40,7 @@ const Users = () => {
           </span>
           <span>
             <span>
-              <div>{u.fullName}</div>
+              <div>{u.name}</div>
               <div>{u.followed}</div>
             </span>
           </span>

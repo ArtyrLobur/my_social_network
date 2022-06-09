@@ -32,22 +32,20 @@ const usersReducerSlice = createSlice({
         }
       });
     },
-    setUsers: (state, action) => {
-      state.users = action.payload;
-    },
   },
   extraReducers: builder => {
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(getUsers.fulfilled, (state, action) => {
       // Add user to the state array
-      state.users = action.payload.data.items;
+        state.users = action.payload.data.items
+        console.log('fulfilled');
     });
-    builder.addCase(getUsers.rejected, (state, action) => {
+    builder.addCase(getUsers.rejected, () => {
       // Add user to the state array
-      state.users = action.payload.data.items;
+        console.log('rejected');
     });
   },
 });
 
-export const { follow, unFollow, setUsers } = usersReducerSlice.actions;
+export const { follow, unFollow } = usersReducerSlice.actions;
 export default usersReducerSlice.reducer;
